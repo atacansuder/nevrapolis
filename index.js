@@ -122,4 +122,4 @@ bot.on('messageUpdate', function(oldMessage, newMessage) {
  });
 
 
-bot.login(bot_token);
+bot.login(process.env.bot_token);
