@@ -61,6 +61,7 @@ bot.on('message' , message =>{
                     message.channel.bulkDelete(100);
                     division -= 1;
                 }
+                bot.channels.get(deleteLogChannel).send(message.author.id + " (" + message.author.username + ") tarafından " + message.channel + " kanalında " + msgCount + " tane mesaj silindi.")
     
             }
     
