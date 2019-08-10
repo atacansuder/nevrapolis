@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const config = require("./config.json");
 
-const token = 'NjA4OTE0NTAzMjkxMzcxNTIz.XUv4dw.kti58ABoTmxLay8HjHiXd3FbuKk';    // botun şifresi
 const PREFIX = '>'; // prefix olarak > kullanılıyor. Bota komut verilirken verilen komutlar > ile başlamalı.
 
 const kabrockieServer = '588434226488279052'
