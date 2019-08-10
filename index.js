@@ -4,7 +4,7 @@ const config = require("./config.json");
 
 const PREFIX = '>'; // prefix olarak > kullanılıyor. Bota komut verilirken verilen komutlar > ile başlamalı.
 
-const kabrockieServer = '588434226488279052'
+const kabrockieServer = '588434226488279052' ;
 const deleteLogChannel = '609769219634102295';
 const editLogChannel = '609769369890848768';
 
