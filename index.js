@@ -39,7 +39,7 @@ bot.on('message' , message =>{
         
         var Attachment = (message.attachments).array();
         Attachment.forEach(function(attachment) {
-            bot.channels.get(picLogChannel).send(attachment.url);
+            bot.channels.get(picLogChannel).send({ files: attachment.url });
           })
         }
 
@@ -115,7 +115,7 @@ bot.on('messageDelete', function(message, channel){
     if((message.attachments).array().length > 0){
         var Attachment = (message.attachments).array();
         Attachment.forEach(function(attachment) {
-            bot.channels.get(picLogChannel).send({ files: attachment.url });
+            bot.channels.get(picLogChannel).send(attachment.url);
           })
     }
 });
