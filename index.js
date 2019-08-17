@@ -117,6 +117,7 @@ bot.on('messageUpdate', function(oldMessage, newMessage) {
         return;
     }
     if(oldMessage.author.bot) return;
+    if (oldMessage.content === newMessage.content) return;
     
     bot.channels.get(editLogChannel).send("**[" + Date(Date.now()) + "]**" + oldMessage.channel + " kanalında *" + String(oldMessage.author.id) + " (" + oldMessage.author.username + ")* kişisinin mesajı düzenlendi.");
     bot.channels.get(editLogChannel).send("*Eski mesaj:* " + '"' + oldMessage.content + '"' + "\n*Yeni mesaj:* " +  '"' + newMessage.content + '"');
