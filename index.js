@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const config = require("./config.json");
+const picLogChannel = '612410482694815744';
 
 const PREFIX = '>'; // prefix olarak > kullanılıyor. Bota komut verilirken verilen komutlar > ile başlamalı.
 
@@ -31,6 +32,16 @@ bot.on('message' , message =>{
     if(message.guild.id !== kabrockieServer){
         return;
     }
+    // Attachment ile atılan her mesajı pic log kanalına atıyor.
+    if((message.attachments).array().length > 0){
+
+        bot.channels.get(picLogChannel).send("[" + Date(Date.now()) + "] " + message.author.id + " (" + message.author.username + "), " + message.channel + " kanalına şu eklentileri attı: ")
+        
+        var Attachment = (message.attachments).array();
+        Attachment.forEach(function(attachment) {
+            bot.channels.get(picLogChannel).send(attachment.url);
+          })
+        }
 
     // Toplu mesaj silme komutu
     if(args[0] === "clear"){
