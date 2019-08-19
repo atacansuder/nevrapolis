@@ -131,8 +131,19 @@ bot.on('messageUpdate', function (oldMessage, newMessage) {
         return;
     }
     if (oldMessage.author.bot) return;  // Botun kendi mesajlarını ignore
+    
+    if((newMessage.attachments).array().length > 0){
+        
+        bot.channels.get(picLogChannel).send("**[" + Date(Date.now()) + "]** " + newMessage.author.id + " (" + newMessage.author.username + "), " + newMessage.channel + " kanalına şu eklentileri attı: ")
+    
+        var Attachment = (newMessage.attachments).array();
+        Attachment.forEach(function (attachment) {
+            bot.channels.get(picLogChannel).send({ files: [attachment.url] });
+        })
+    }
 
 
+    /*
     // Birisi bir fotoğraf linki attığında pic loguna düşmüyor
     // Çünkü link atıldığında fotoğraf hemen ortaya çıkmıyor, bir kaç saniye sonra yükleniyor
     // Aşağıdaki kod ile linkli mesajlar da pic loguna düşecek
@@ -145,6 +156,7 @@ bot.on('messageUpdate', function (oldMessage, newMessage) {
             bot.channels.get(picLogChannel).send({ files: [attachment.url] });
         })
     }
+    */
 
 
     // Atılan fotoğraf linkli mesajlar fotoğraf ortaya çıkınca editlenmiş gibi algılanıyor
