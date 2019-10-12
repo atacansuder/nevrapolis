@@ -25,6 +25,11 @@ bot.on('ready', () => {
 // Belirli mesajlara göre yapılan işlemler burada
 bot.on('message', message => {
 
+    if(!message.content.startsWith(PREFIX))
+    {
+        return;
+    }
+    
     if (message.author.bot) return;    // Bot kendi yazdığı mesajları ignoreluyor.
     if (message.channel.type === "dm") return; // Özel mesajları ignore
     let args = message.content.substring(PREFIX.length).split(" ");
